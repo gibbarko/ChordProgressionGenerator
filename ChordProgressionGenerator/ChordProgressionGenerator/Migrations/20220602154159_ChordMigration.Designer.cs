@@ -3,14 +3,16 @@ using System;
 using ChordProgressionGenerator.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ChordProgressionGenerator.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220602154159_ChordMigration")]
+    partial class ChordMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,10 +35,10 @@ namespace ChordProgressionGenerator.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("FINGER_POSITIONS")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("json");
 
                     b.Property<string>("NOTE_NAMES")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("json");
 
                     b.HasKey("Id");
 

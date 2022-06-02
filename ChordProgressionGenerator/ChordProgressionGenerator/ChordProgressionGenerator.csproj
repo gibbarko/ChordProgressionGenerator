@@ -9,6 +9,7 @@
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
     <None Remove="Pomelo.EntityFrameworkCore.MySql.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Views\Chord\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -26,4 +27,7 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Chord\" />
+  </ItemGroup>
 </Project>
