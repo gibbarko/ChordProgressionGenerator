@@ -1,0 +1,19 @@
+﻿@model ChordProgressionGenerator.Models.Chord;
+
+<h1>Chord Name: @Model.CHORD_ROOT@Model.CHORD_TYPE || ID: @Model.Id.</h1>
+
+<div>
+    <ul>
+        <li>
+            <p>Finger Positioning: @Model.FINGER_POSITIONS</p>
+        </li>
+
+        <li>
+            <p>Chord Structure: @Model.CHORD_STRUCTURE</p>
+        </li>
+
+        <li>
+            <p>Note Names: @Model.NOTE_NAMES</p>
+        </li>
+    </ul>
+</div>

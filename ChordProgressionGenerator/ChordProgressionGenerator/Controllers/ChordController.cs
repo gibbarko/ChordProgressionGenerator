@@ -19,16 +19,29 @@ namespace ChordProgressionGenerator.Controllers
             context = dbContext;
         }
 
+        //testing that chords show up from db
         public IActionResult Index()
         {
             List<Chord> chords = context.Chords.ToList();
             return View(chords);
         }
 
-        public IActionResult About(int id)
+        //return random chord from database
+        public Chord GenerateRandomChord()
         {
-            Chord chord = context.Chords.Find(23);
-            return View();
+            Random rnd = new Random();
+
+            int randId = rnd.Next(1, 2632);
+
+            return context.Chords.Find(randId);
+        }
+
+        //allows user to generate random chord when they click link
+        public IActionResult RandomChord()
+        {
+            Chord chord = GenerateRandomChord();
+
+            return View(chord);
         }
     }
 }
