@@ -1,5 +1,18 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<ChordProgressionGenerator.Models.Chord>
+
+<h1>Chord Progression</h1>
+
+<div>
+    <ul>
+        @foreach (Chord chord in Model)
+        {
+            <li>
+                <p>Chord Name: @chord.CHORD_ROOT@chord.CHORD_TYPE || Chord Structure: @chord.CHORD_STRUCTURE || Finger Positioning: @chord.FINGER_POSITIONS</p>
+            </li>
+        }
+    </ul>
+</div>
+
+<div>
+    @Html.ActionLink("Click for a new chord progression!", "Index", "Progression")
+</div>
