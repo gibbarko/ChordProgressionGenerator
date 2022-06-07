@@ -13,7 +13,7 @@ namespace ChordProgressionGenerator.Data
 
         public DbSet<Key> Keys { get; set; }
 
-        //public DbSet<Progression> Progressions { get; set; }
+        public DbSet<Progression> Progressions { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

@@ -1,0 +1,42 @@
+﻿@using ChordProgressionGenerator.ViewModels;
+@model NewProgressionViewModel;
+
+<div class="text-center">
+    <h1 class="display-4">Randomized Chord Progression Generator</h1>
+</div>
+
+<form asp-controller="TempProgression" asp-action="Display" method="post">
+    <div class="form-group">
+        <label asp-for="Key">Key</label>
+        <select asp-for="Key">
+            <option value="A">A</option>
+            <option value="A#">A#</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="C#">C#</option>
+            <option value="D">D</option>
+            <option value="D#">D#</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="F#">B</option>
+            <option value="G">G</option>
+            <option value="G#">B</option>
+        </select>
+        <span asp-validation-for="ScaleType"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ScaleType">Scale Type</label>
+        <select asp-for="ScaleType">
+            <option value="Major">Major</option>
+            <option value="Minor">Minor</option>
+        </select>
+        <span asp-validation-for="ScaleType"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChordNum">Number of Chords (2 to 10)</label>
+        <input type="number" min="2" max="10" asp-for="ChordNum" class="form-control" />
+        <span asp-validation-for="ChordNum"></span>
+    </div>
+    <input type="submit" value="Generate"/>
+</form>
+

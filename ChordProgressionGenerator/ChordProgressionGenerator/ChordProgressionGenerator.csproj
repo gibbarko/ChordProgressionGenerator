@@ -10,8 +10,9 @@
     <None Remove="Pomelo.EntityFrameworkCore.MySql.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Views\Chord\" />
-    <None Remove="Views\Progression\" />
     <None Remove="Newtonsoft.Json" />
+    <None Remove="ViewModels\" />
+    <None Remove="Views\Progressions\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -32,6 +33,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Chord\" />
+    <Folder Include="ViewModels\" />
     <Folder Include="Views\Progression\" />
   </ItemGroup>
 </Project>
