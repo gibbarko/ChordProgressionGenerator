@@ -35,6 +35,9 @@ namespace ChordProgressionGenerator.Migrations
                     b.Property<string>("FINGER_POSITIONS")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("FRETS")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<string>("NOTE_NAMES")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 

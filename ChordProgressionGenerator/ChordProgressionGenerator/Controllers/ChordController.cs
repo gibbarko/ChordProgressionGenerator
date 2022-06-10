@@ -31,7 +31,7 @@ namespace ChordProgressionGenerator.Controllers
         {
             Random rnd = new Random();
 
-            int randId = rnd.Next(1, 2632);
+            int randId = rnd.Next(2632, 5264);
 
             return context.Chords.Find(randId);
         }

@@ -15,10 +15,15 @@ namespace ChordProgressionGenerator.Controllers
     public class ProgressionController : Controller
     {
         private ApplicationDbContext context;
+        private List<Progression> progressions;
+        private List<Progression> userProgressions;
 
         public ProgressionController(ApplicationDbContext dbContext)
         {
             context = dbContext;
+            //List<Progression> progressions = context.Progressions.ToList();
+            //List<Progression> userProgressions = context.Progressions
+            //    .Where(x => x.ApplicationUserId == this.User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
         }
 
         private List<Chord> ConvertStringToChords(string chordIds)
@@ -41,10 +46,8 @@ namespace ChordProgressionGenerator.Controllers
 
         public IActionResult Index()
         {
-            List<Progression> progressions = context.Progressions
-                .Where(x => x.ApplicationUserId == this.User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
-
-            return View(progressions);
+            return View(context.Progressions
+                .Where(x => x.ApplicationUserId == this.User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList());
         }
 
         //create instance of TempProgressionController in order to convert chord string to list of chord objects
@@ -82,5 +85,27 @@ namespace ChordProgressionGenerator.Controllers
 
             return Redirect("Index");
         }
+
+        [HttpGet]
+        [Route("Progression/Delete")]
+        public IActionResult Delete()
+        {
+            return View(userProgressions);
+        }
+
+        [HttpPost]
+        [Route("Recipe/Delete")]
+        public IActionResult Delete(int[] recipeIds)
+        {
+            foreach (int recipeId in recipeIds)
+            {
+                Progression theProgression = context.Progressions.Find(recipeId);
+                context.Progressions.Remove(theProgression);
+            }
+            context.SaveChanges();
+
+            return Redirect("/Progression");
+        }
     }
+
 }

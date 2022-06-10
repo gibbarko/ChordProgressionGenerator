@@ -2,8 +2,13 @@
 
 <h1>Chord Name: @Model.CHORD_ROOT@Model.CHORD_TYPE || ID: @Model.Id.</h1>
 
+<partial name="/Views/Shared/_ChordPartial.cshtml" model="@Model"/>
+
 <div>
     <ul>
+        <li>
+            <p>Frets: @Model.FRETS</p>
+        </li>
         <li>
             <p>Finger Positioning: @Model.FINGER_POSITIONS</p>
         </li>

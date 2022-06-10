@@ -55,11 +55,11 @@ namespace ChordProgressionGenerator.Controllers
 
             for (int i = 0; i < chordNum; i++)
             {
-                int randId = rnd.Next(1, 2632);
+                int randId = rnd.Next(2632, 5264);
 
                 while (!(IsChordInKey(key, context.Chords.Find(randId))))
                 {
-                    randId = rnd.Next(1, 2632);
+                    randId = rnd.Next(2632, 5264);
                 }
 
                 chordId[i] = randId;

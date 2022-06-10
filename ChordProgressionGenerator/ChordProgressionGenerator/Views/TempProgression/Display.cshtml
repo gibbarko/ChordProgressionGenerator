@@ -3,19 +3,13 @@
 <h1>Chord Progression</h1>
 
 <div>
-    <ul>
-        @foreach (Chord chord in Model.Chords)
-        {
-            <li>
-                <p>Chord Name: @chord.CHORD_ROOT@chord.CHORD_TYPE || Chord Structure: @chord.CHORD_STRUCTURE || Finger Positioning: @chord.FINGER_POSITIONS</p>
-            </li>
-        }
-    </ul>
+    <partial name="/Views/Shared/_ChordProgressionPartial.cshtml" model="@Model.Chords" />
 </div>
 
 <div>
     @Html.ActionLink("Click to change key and chord number!", "Index", "TempProgression")
 </div>
+
 
 @{
     var data = new Dictionary<string, string>
@@ -26,10 +20,12 @@
     };
 }
 
+<p>If you want, you can name and save the progression below!</p>
+<hr />
 <form asp-controller="Progression" asp-action="SaveProgression" asp-all-route-data="data" method="post">
     <div class="form-group">
         <label>Pick a Name</label>
-        <input asp-for="Name" type="text" value="Name" />
+        <input asp-for="Name" type="text" />
     </div>
     <input type="submit" value="Save Progression" />
 </form>

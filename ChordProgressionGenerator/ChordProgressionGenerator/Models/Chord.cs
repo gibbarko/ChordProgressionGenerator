@@ -11,6 +11,7 @@ namespace ChordProgressionGenerator.Models
         public string CHORD_STRUCTURE { get; set; }
         public string FINGER_POSITIONS { get; set; }
         public string NOTE_NAMES { get; set; }
+        public string FRETS { get; set; }
 
         public Chord()
         {
